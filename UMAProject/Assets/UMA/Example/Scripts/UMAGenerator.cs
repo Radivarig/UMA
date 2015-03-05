@@ -5,6 +5,7 @@ public class UMAGenerator : UMAGeneratorBuiltin
 {
 	public override void Awake()
 	{
+#if !UNITY_5
 		if (usePRO)
 		{
 #if UNITY_EDITOR
@@ -13,8 +14,10 @@ public class UMAGenerator : UMAGeneratorBuiltin
 				Debug.LogError("You told the Generator to usePRO but you don't have pro license. Toggling to false.", gameObject);
 				usePRO = false;
 			}
+
 #endif
 		}
+#endif
 		base.Awake();
 	}
 
